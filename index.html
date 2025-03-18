@@ -72,9 +72,31 @@
     .hidden-content {
       display: none;
     }
+    /* Style pour le formulaire de mot de passe */
+    .password-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #F0F0F0;
+    }
+    .password-form input[type="password"],
+    .password-form input[type="submit"] {
+      padding: 10px;
+      font-size: 1em;
+      margin: 5px;
+    }
   </style>
 </head>
-<body onload="checkPassword()">
+<body>
+  <!-- Formulaire de mot de passe -->
+  <div class="password-form" id="password-form">
+    <form onsubmit="return checkPassword()">
+      <input type="password" id="password" placeholder="Entrez le mot de passe">
+      <input type="submit" value="Soumettre">
+    </form>
+  </div>
+
   <div id="content" class="hidden-content">
     <h1>Guide Interactif – Modalités d'Exécution Financière des Subventions</h1>
 
@@ -95,17 +117,22 @@
       // Définir le mot de passe correct
       const correctPassword = "PNUD2025"; // Remplacez par votre mot de passe
 
-      // Demander à l'utilisateur de saisir le mot de passe
-      const userPassword = prompt("Veuillez entrer le mot de passe pour accéder à cette page:");
+      // Récupérer le mot de passe saisi par l'utilisateur
+      const userPassword = document.getElementById("password").value;
 
       // Vérifier si le mot de passe est correct
       if (userPassword === correctPassword) {
+        // Masquer le formulaire de mot de passe
+        document.getElementById("password-form").style.display = "none";
+
         // Afficher le contenu si le mot de passe est correct
         document.getElementById("content").style.display = "block";
+
+        return false; // Empêcher le rechargement de la page
       } else {
-        // Rediriger l'utilisateur ou afficher un message d'erreur
+        // Afficher un message d'erreur
         alert("Mot de passe incorrect. Accès refusé.");
-        window.location.href = "https://matrixtn770.github.io/grants/"; // Redirection vers une autre page ou la même page
+        return false; // Empêcher le rechargement de la page
       }
     }
   </script>
