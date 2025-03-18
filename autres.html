@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>AUTRES</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 20px; 
+      background-color: #F9F9F9; 
+    }
+    h1 { 
+      color: #D0021B; 
+      text-align: center; 
+      margin-bottom: 30px; 
+    }
+    .back-button { 
+      margin-top: 20px; 
+      padding: 10px 20px; 
+      background-color: #D0021B; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      font-size: 1em; 
+    }
+    .case { 
+      margin-bottom: 20px; 
+      cursor: pointer; 
+      color: #333; 
+      font-weight: bold; 
+      font-size: 1.1em; 
+      padding: 15px; 
+      border: 2px solid #D0021B; 
+      border-radius: 10px; 
+      transition: background-color 0.3s, color 0.3s; 
+      background-color: white; 
+    }
+    .case:hover { 
+      background-color: #D0021B; 
+      color: white; 
+    }
+    .details { 
+      display: none; 
+      margin-left: 20px; 
+      color: #555; 
+      font-weight: normal; 
+      padding: 10px; 
+      background-color: #F0F0F0; 
+      border-left: 4px solid #D0021B; 
+      margin-top: 10px; 
+      border-radius: 5px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>CONTRATS, FACTURES ET HONORAIRES</h1>
+  <p>Cette section comprend :</p>
+
+  <!-- Case 1 : Contrats -->
+  <div class="case" onclick="toggleDetails('case1')">
+    Contrats
+  </div>
+  <div id="case1" class="details">
+    Un contrat est obligatoire dans les cas suivants :<br>
+    - Prestations de service (conseil, formation, etc.)<br>
+    - Travail à plein temps ou temps partiel (relation employeur-employé clairement établie)<br>
+    - Location de biens meubles<br>
+    - Travaux d’impression et d’édition et toute acquisition d’une valeur supérieure à 2 500 TND<br>
+    - Location de voiture<br>
+    - Toute fourniture de bien et service, d’étude et de transport (et de travaux, éventuellement si ce type de prestation est accepté par la procédure PNUD) dont la livraison n’est pas immédiate (ou n’est pas à brève échéance) même si la valeur de la transaction est inférieure au montant cité ci-dessus<br>
+    - Toute autre contractualisation recommandée par le chargé du suivi lors de la validation de la fiche d’activité
+  </div>
+
+  <!-- Case 2 : Factures -->
+  <div class="case" onclick="toggleDetails('case2')">
+    Factures
+  </div>
+  <div id="case2" class="details">
+    - Les factures doivent être établies au nom de l’association<br>
+    - Les factures doivent porter les mentions légales obligatoires<br>
+    - Les factures d’une valeur supérieure ou égale à 500 TND doivent être réglées par chèque ou par virement bancaire<br>
+    - Le fractionnement d’un achat sur plusieurs factures aux fins de ne pas atteindre la limite des 500 TND est strictement interdit<br>
+    - Il est vivement recommandé de minimiser les paiements en espèces
+  </div>
+
+  <!-- Case 3 : Honoraires -->
+  <div class="case" onclick="toggleDetails('case3')">
+    Honoraires
+  </div>
+  <div id="case3" class="details">
+    - Des TDR doivent être établis pour chaque mission et approuvés par le président de l’association et le chef de projet<br>
+    - Un contrat doit être établi avec chaque prestataire<br>
+    - Le contrat doit :<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Identifier les parties contractantes (l’association et le prestataire de service)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Enumérer les pièces du contrat (éventuellement s’il y a des annexes ou autres documents au contrat)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Spécifier le montant des honoraires (en précisant le prix HTVA et le prix TTC (l’association bénéficie de la suspension de la TVA)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Spécifier la durée d’exécution de la prestation en mentionnant, si possible, les dates prévisionnelles de début d’exécution et d’achèvement<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Spécifier les conditions d’admission des prestations et les conditions de résiliation du contrat (éventuellement si le prestataire n’honore pas ses engagements)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Les prestations et leur durée, les livrables (contenu et forme) ainsi que le montant des honoraires et les modalités de paiement<br>
+    - Une note d’honoraires mentionnant obligatoirement l’identité de l’émetteur, matricule fiscal ou numéro de la CIN, description de la prestation, montant, cachet, signature et date d’émission<br>
+    - Une copie de la CIN ou de la matricule fiscale doit être jointe au contrat<br>
+    - Une preuve de paiement doit être fournie : copie du virement, chèque ou reçu de caisse
+  </div>
+
+  <button class="back-button" onclick="window.location.href='index.html'">Retour à l'accueil</button>
+
+  <script>
+    function toggleDetails(id) {
+      var details = document.getElementById(id);
+      if (details.style.display === "none") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
