@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Guide Interactif – Modalités d'Exécution Financière des Subventions pour les OSC</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      background-color: #F0F0F0; 
+    }
+    h1 { 
+      color: white; 
+      text-align: center; 
+      padding: 30px; 
+      background-color: #333; 
+      margin: 0; 
+      font-size: 2em; 
+    }
+    .container { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 40px; 
+      padding: 50px; 
+      height: calc(100vh - 140px); 
+      max-width: 1200px; 
+      margin: 0 auto; 
+    }
+    .card { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      color: white; 
+      font-size: 2em; 
+      font-weight: bold; 
+      border-radius: 25px; 
+      cursor: pointer; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      height: 250px; 
+      text-align: center; 
+      text-decoration: none; 
+    }
+    .card:hover { 
+      transform: scale(1.08); 
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+    }
+    #card-achat { 
+      background: linear-gradient(145deg, #4A90E2, #50B3C6); 
+    }
+    #card-finance { 
+      background: linear-gradient(145deg, #7ED321, #8CC63F); 
+    }
+    #card-rh { 
+      background: linear-gradient(145deg, #F5A623, #F8B44C); 
+    }
+    #card-autres { 
+      background: linear-gradient(145deg, #D0021B, #E74C3C); 
+    }
+    footer { 
+      text-align: center; 
+      padding: 15px; 
+      background-color: #333; 
+      color: white; 
+      position: fixed; 
+      bottom: 0; 
+      width: 100%; 
+      font-size: 0.9em; 
+    }
+    /* Ajout d'un style pour masquer le contenu initialement */
+    .hidden-content {
+      display: none;
+    }
+    /* Style pour le formulaire de mot de passe */
+    .password-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #F0F0F0;
+    }
+    .password-form input[type="password"],
+    .password-form input[type="submit"] {
+      padding: 10px;
+      font-size: 1em;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Formulaire de mot de passe -->
+  <div class="password-form" id="password-form">
+    <form onsubmit="return checkPassword()">
+      <input type="password" id="password" placeholder="Entrez le mot de passe">
+      <input type="submit" value="Soumettre">
+    </form>
+  </div>
+
+  <div id="content" class="hidden-content">
+    <h1>Guide Interactif – Modalités d'Exécution Financière des Subventions</h1>
+
+    <div class="container">
+      <a href="achat.html" class="card" id="card-achat">ACHAT</a>
+      <a href="finance.html" class="card" id="card-finance">DEPLACEMENT, RESTAURATION ET HEBERGEMENT</a>
+      <a href="rh.html" class="card" id="card-rh">RESSOURCES HUMAINES</a>
+      <a href="autres.html" class="card" id="card-autres">CONTRATS, FACTURES ET HONORAIRES</a>
+    </div>
+
+    <footer>
+      <p>Ce guide interactif a été conçu pour faciliter l'application des modalités d'exécution financière des subventions pour les OSC.</p>
+    </footer>
+  </div>
+
+  <script>
+    function checkPassword() {
+      // Définir le mot de passe correct
+      const correctPassword = "PNUD2025"; // Remplacez par votre mot de passe
+
+      // Récupérer le mot de passe saisi par l'utilisateur
+      const userPassword = document.getElementById("password").value;
+
+      // Vérifier si le mot de passe est correct
+      if (userPassword === correctPassword) {
+        // Masquer le formulaire de mot de passe
+        document.getElementById("password-form").style.display = "none";
+
+        // Afficher le contenu si le mot de passe est correct
+        document.getElementById("content").style.display = "block";
+
+        return false; // Empêcher le rechargement de la page
+      } else {
+        // Afficher un message d'erreur
+        alert("Mot de passe incorrect. Accès refusé.");
+        return false; // Empêcher le rechargement de la page
+      }
+    }
+  </script>
+</body>
+</html>
